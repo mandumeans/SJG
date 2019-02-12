@@ -28,17 +28,17 @@ public class SjgApplicationTests {
 	}
 	
 	@Test
-	public void °Ô½Ã±ÛÀúÀå_ºÒ·¯¿À±â() {
+	public void ê²Œì‹œê¸€ì €ìž¥_ë¶ˆëŸ¬ì˜¤ê¸°() {
 		//given
-		postsRepository.save(Posts.builder().title("Å×½ºÆ® °Ô½Ã±Û").content("Å×½ºÆ® º»¹®").author("Persuader").build());
+		postsRepository.save(Posts.builder().title("í…ŒìŠ¤íŠ¸ ê²Œì‹œê¸€").content("í…ŒìŠ¤íŠ¸ ë³¸ë¬¸").author("Persuader").build());
 		
 		//when
 		List<Posts> postsList = postsRepository.findAll();
 		
 		//then
 		Posts posts = postsList.get(0);
-		assertThat(posts.getTitle(), is("Å×½ºÆ® °Ô½Ã±Û"));
-		assertThat(posts.getContent(), is("Å×½ºÆ® º»¹®"));
+		assertThat(posts.getTitle(), is("í…ŒìŠ¤íŠ¸ ê²Œì‹œê¸€"));
+		assertThat(posts.getContent(), is("í…ŒìŠ¤íŠ¸ ë³¸ë¬¸"));
 	}
 
 }

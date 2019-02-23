@@ -6,12 +6,19 @@ var main = {
 			$('#btn-save').on('click', function(){
 				_this.save();
 			});
+			
+			$('.postRow .prfunc .btnComment').on('click', function(){
+				$('#savePostsModal').modal();
+				var prId = $(this).parents('.postRow').find('.prId').html();
+				$('#upperid').val(prId);
+			});
 		},
 		save : function() {
 			var data = {
 					title: $('#title').val(),
 					author: $('#author').val(),
-					content: $('#content').val()
+					content: $('#content').val(),
+					upperId: $('#upperid').val()
 			};
 			
 			$.ajax({

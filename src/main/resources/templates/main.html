@@ -32,7 +32,9 @@
             <tbody id="tbody">
             {{#each posts}}
                 <tr class="postRow">
-                    <td class="prId">{{id}}</td>
+                    <td class="prId">
+                    <input type="hidden" class="myId" value="{{id}}"/>
+                    <input type="hidden" class="upperId" value="{{upperId}}"/>  {{id}}</td>
                     <td>{{title}}</td>
                     <td>{{author}}</td>
                     <td>{{content}}</td>

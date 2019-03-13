@@ -3,13 +3,23 @@
 var main = {
 		init : function() {
 			var _this = this;
+			
+			$('.postRow').each(function(){
+				upperId = $(this).find(".upperId").val();
+				if(upperId !== "") {
+					$(this).find(".btnComment").hide();
+					$(this).find(".prId").html("ㄴ");
+					$(this).find(".prId").css("text-align","center");
+				}
+			});
+			
 			$('#btn-save').on('click', function(){
 				_this.save();
 			});
 			
 			$('.postRow .prfunc .btnComment').on('click', function(){
 				$('#savePostsModal').modal();
-				var prId = $(this).parents('.postRow').find('.prId').html();
+				var prId = $(this).parents('.postRow').find('.myId').val();
 				$('#upperid').val(prId);
 			});
 		},

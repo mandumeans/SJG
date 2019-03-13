@@ -15,6 +15,7 @@ public class PostsMainResponseDto {
     private String content;
     private String author;
     private String modifiedDate;
+    private Long upperId;
     
     public PostsMainResponseDto(Posts entity) {
         id = entity.getId();
@@ -22,6 +23,7 @@ public class PostsMainResponseDto {
         author = entity.getAuthor();
         content = entity.getContent();
         modifiedDate = toStringDateTime(entity.getModifiedDate());
+        upperId = entity.getUpperId();
     }
 
     private String toStringDateTime(LocalDateTime localDateTime) {

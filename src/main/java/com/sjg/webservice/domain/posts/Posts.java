@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import com.sjg.webservice.domain.BaseTimeEntity;
 
@@ -31,6 +32,17 @@ public class Posts extends BaseTimeEntity{
 
 	@Column(nullable = true)
 	private Long upperId;
+	
+	@Transient
+	private Long lev;
+	
+	public Long getLev() {
+		if(upperId == null) {
+			return id;
+		} else {
+			return upperId;
+		}
+	}
 	
 	@Builder
 	public Posts(String title, String content, String author, Long upperId) {

@@ -24,16 +24,22 @@
                     <th>게시글번호</th>
                     <th>제목</th>
                     <th>작성자</th>
+                    <th>내용</th>
                     <th>최종수정일</th>
+                    <th>댓글 추가</th>
                 </tr>
             </thead>
             <tbody id="tbody">
             {{#each posts}}
-                <tr>
-                    <td>{{id}}</td>
+                <tr class="postRow">
+                    <td class="prId">{{id}}</td>
                     <td>{{title}}</td>
                     <td>{{author}}</td>
+                    <td>{{content}}</td>
                     <td>{{modifiedDate}}</td>
+                    <td class="prfunc">
+        				<button type="button" class="btnComment btn btn-primary">댓글 달기</button>
+        			</td>
                 </tr>
             {{/each}}
             </tbody>
@@ -63,6 +69,7 @@
                             <label for="content"> 내용 </label>
                             <textarea class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
                         </div>
+                        <input type="hidden" id="upperid"/>
                     </form>
                 </div>
                 <div class="modal-footer">

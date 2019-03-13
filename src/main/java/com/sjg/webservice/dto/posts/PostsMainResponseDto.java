@@ -12,6 +12,7 @@ import lombok.Getter;
 public class PostsMainResponseDto {
     private Long id;
     private String title;
+    private String content;
     private String author;
     private String modifiedDate;
     
@@ -19,6 +20,7 @@ public class PostsMainResponseDto {
         id = entity.getId();
         title = entity.getTitle();
         author = entity.getAuthor();
+        content = entity.getContent();
         modifiedDate = toStringDateTime(entity.getModifiedDate());
     }
 

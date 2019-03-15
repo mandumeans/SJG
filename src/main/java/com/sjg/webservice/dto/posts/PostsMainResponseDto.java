@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.sjg.webservice.domain.posts.Posts;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class PostsMainResponseDto {
@@ -17,6 +18,13 @@ public class PostsMainResponseDto {
     private String modifiedDate;
     private Long upperId;
     
+    @Setter
+	private Long rootId;
+    
+    @Setter
+	private Long depth;
+	
+    
     public PostsMainResponseDto(Posts entity) {
         id = entity.getId();
         title = entity.getTitle();
@@ -26,6 +34,15 @@ public class PostsMainResponseDto {
         upperId = entity.getUpperId();
     }
 
+
+	public Long getRootId() {
+		if(upperId == null) {
+			return id;
+		} else {
+			return rootId;
+		}
+	}
+    
     private String toStringDateTime(LocalDateTime localDateTime) {
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     	return Optional.ofNullable(localDateTime).map(formatter::format).orElse("");

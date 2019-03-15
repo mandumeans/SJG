@@ -6,10 +6,14 @@ var main = {
 			
 			$('.postRow').each(function(){
 				upperId = $(this).find(".upperId").val();
+				depth = $(this).find(".depth").val();
+				postRepresenter = $(this).find(".prId .postRepresenter");
 				if(upperId !== "") {
-					$(this).find(".btnComment").hide();
-					$(this).find(".prId").html("ㄴ");
-					$(this).find(".prId").css("text-align","center");
+					if(parseInt(depth) >= 99){
+						$(this).find(".btnComment").hide();
+					}
+					postRepresenter.html("ㄴ");
+					postRepresenter.css("margin-left",depth + "%");
 				}
 			});
 			

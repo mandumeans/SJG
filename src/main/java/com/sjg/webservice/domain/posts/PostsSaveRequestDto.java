@@ -11,6 +11,9 @@ public class PostsSaveRequestDto {
 	private String title;
 	private String content;
 	private String author;
+	private Long rootId;
+	private Long lft;
+	private Long rgt;
 	private Long upperId;
 	
 	public Posts toEntity() {
@@ -18,7 +21,9 @@ public class PostsSaveRequestDto {
 				.title(title)
 				.content(content)
 				.author(author)
-				.upperId(upperId)
+				.rootId(rootId)
+				.lft(lft)
+				.rgt(rgt)
 				.build();
 	}
 }

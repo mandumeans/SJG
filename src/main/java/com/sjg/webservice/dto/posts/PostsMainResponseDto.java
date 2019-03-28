@@ -16,36 +16,27 @@ public class PostsMainResponseDto {
     private String content;
     private String author;
     private String modifiedDate;
-    private Long upperId;
+    private Long lft;
+    private Long rgt;
+    private Long depth;
     
     @Setter
 	private Long rootId;
-    
-    @Setter
-	private Long depth;
-	
-    
+
     public PostsMainResponseDto(Posts entity) {
         id = entity.getId();
         title = entity.getTitle();
-        author = entity.getAuthor();
         content = entity.getContent();
+        author = entity.getAuthor();
+        lft = entity.getLft();
+        rgt = entity.getRgt();
+        rootId = entity.getRootId();
         modifiedDate = toStringDateTime(entity.getModifiedDate());
-        upperId = entity.getUpperId();
+        depth = entity.getDepth();
     }
-
-
-	public Long getRootId() {
-		if(upperId == null) {
-			return id;
-		} else {
-			return rootId;
-		}
-	}
     
     private String toStringDateTime(LocalDateTime localDateTime) {
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     	return Optional.ofNullable(localDateTime).map(formatter::format).orElse("");
     }
-    
 }

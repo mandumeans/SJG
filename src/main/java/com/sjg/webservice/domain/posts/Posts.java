@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import com.sjg.webservice.domain.BaseTimeEntity;
 
@@ -30,13 +31,27 @@ public class Posts extends BaseTimeEntity{
 	private String author;
 
 	@Column(nullable = true)
-	private Long upperId;
+	private Long rootId;
+	
+    private Long lft;
+    private Long rgt;
+    
+    @Transient
+    private Long depth;
 		
 	@Builder
-	public Posts(String title, String content, String author, Long upperId) {
+	public Posts(String title, String content, String author, Long rootId, Long lft, Long rgt) {
 		this.title = title;
 		this.content = content;
 		this.author = author;
-		this.upperId = upperId;
+		this.rootId = rootId;
+		this.lft = lft;
+		this.rgt = rgt;
+	}
+	
+	public Posts(Posts entity, Long depth) {
+		this(entity.getTitle(), entity.getContent(), entity.getAuthor(), entity.getRootId(), entity.getLft(), entity.getRgt());
+		this.id = entity.getId();
+		this.depth = depth;
 	}
 }

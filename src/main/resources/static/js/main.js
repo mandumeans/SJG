@@ -5,15 +5,16 @@ var main = {
 			var _this = this;
 			
 			$('.postRow').each(function(){
-				upperId = $(this).find(".upperId").val();
-				depth = $(this).find(".depth").val();
+				var upperId = $(this).find(".upperId").val();
+				var depth = $(this).find(".depth").val();
+				var depthInt = parseInt(depth);
 				postRepresenter = $(this).find(".prId .postRepresenter");
 				if(upperId !== "") {
-					if(parseInt(depth) >= 99){
+					if(depthInt >= 99){
 						$(this).find(".btnComment").hide();
 					}
 					postRepresenter.html("ㄴ");
-					postRepresenter.css("margin-left",depth + "%");
+					postRepresenter.css("margin-left",((depthInt - 1) * 10) + "%");
 				}
 			});
 			

@@ -1,4 +1,4 @@
-package com.sjg.webservice.domain.posts;
+package com.sjg.webservice.domain.alerts;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

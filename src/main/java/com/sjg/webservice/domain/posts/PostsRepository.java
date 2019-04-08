@@ -20,6 +20,10 @@ public interface PostsRepository extends JpaRepository<Posts, Long>{
 			"GROUP BY node.id " + 
 			"ORDER BY node.lft")
 	Stream<Posts> findAllPostsAsTree();
+
+	@Query("SELECT p " 
+			+ "FROM Posts p WHERE :lft BETWEEN lft AND rgt AND id <> :id")
+	Stream<Posts> findAllParentPosts(@Param("id") Long id, @Param("lft") Long lft);
 	
 	@Query("SELECT p " 
 			+ "FROM Posts p WHERE id = :id")

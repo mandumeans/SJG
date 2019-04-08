@@ -1,4 +1,6 @@
-package com.sjg.webservice.domain.posts;
+package com.sjg.webservice.dto.alerts;
+
+import com.sjg.webservice.domain.alerts.Alerts;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

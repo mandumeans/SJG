@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sjg.webservice.dto.files.FilesSaveRequestDto;
@@ -44,12 +45,9 @@ public class WebRestController {
     }
     
     @PostMapping("/upload")
-    public ResponseEntity<?> uploadAttachment(FilesSaveRequestDto sourceFile) throws IOException {
-    	
-    	
-		(sourceFile.getMultiPartfile()).transferTo(sourceFile.getFile());
+    public ResponseEntity<?> uploadAttachment(@RequestParam FilesSaveRequestDto sourceFile) throws IOException {
+    	(sourceFile.getMultiPartfile()).transferTo(sourceFile.getFile());
     	UploadAttachFileResponseDto response = new UploadAttachFileResponseDto(filesService.save(sourceFile));
-    	
     	
     	return new ResponseEntity<>(response, HttpStatus.OK);
     }

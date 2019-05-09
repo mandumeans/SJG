@@ -51,7 +51,7 @@ public class SjgApplication {
         								.build());
         	usersRepository.save(Users.builder()
         						.userName("user1")
-        						.password("$2a$10$oXhcs6qujNbFA5yXauupSuWLQpMjVbAskvPbMvcUzurpsdIuSXs7m")
+        						.password("$2a$10$6q7Ep3WbSkc4iOLVl1ZEFO1fLga0xR.Z82uVGInJKHZClsJvUZOkq")
         						.userType("2")
         						.build());
         };

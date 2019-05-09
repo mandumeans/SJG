@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OauthClientsRepository extends JpaRepository<OauthClients, Long>{
 	@Query("SELECT p " 
-			+ "FROM OAuthClients p " 
+			+ "FROM OauthClients p " 
 			+ "ORDER BY p.id DESC")
 	Stream<OauthClients> findAllDesc();
 }

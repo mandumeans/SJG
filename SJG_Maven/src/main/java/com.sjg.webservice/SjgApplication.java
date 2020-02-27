@@ -2,7 +2,9 @@ package com.sjg.webservice;
 
 import com.sjg.webservice.util.MultipartFileToFileDtoConverter;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -11,6 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableJpaAuditing
 @SpringBootApplication
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
 public class SjgApplication {
 
 	public static void main(String[] args) {

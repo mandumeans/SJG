@@ -26,8 +26,7 @@ public class SjgApplicationTests {
 	public void cleanup() {
 		postsRepository.deleteAll();
 	}
-	
-	@Test
+
 	public void 게시글저장_불러오기() {
 		//given
 		postsRepository.save(Posts.builder().title("테스트 게시글").content("테스트 본문").author("Persuader").build());
@@ -41,7 +40,6 @@ public class SjgApplicationTests {
 		assertThat(posts.getContent(), is("테스트 본문"));
 	}
 
-	@Test
 	public void BaseTimeEntity_등록() {
 		//given
 		LocalDateTime now = LocalDateTime.now();
